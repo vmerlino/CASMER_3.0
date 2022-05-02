@@ -1,0 +1,110 @@
+<? versión xml = " 1.0 " codificación = " UTF-8 " ?>
+< proyecto  xmlns : xsi = " http://www.w3.org/2001/XMLSchema-instance "
+  xmlns = " http://maven.apache.org/POM/4.0.0 "
+  xsi : ubicación del esquema = " http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd " >
+  < versión del modelo >4.0.0</ versión del modelo >
+  < groupId >com.ejemplo</ groupId >
+  < artefactoId >java-primeros-pasos</ artefactoId >
+  < versión >1.0</ versión >
+
+  < padre >
+    < groupId >org.springframework.boot</ groupId >
+    < artefactoId >primavera-arranque-inicial</ artefactoId >
+    < versión >2.3.0.LIBERAR</ versión >
+    < ruta relativa / >
+  </ padre >
+  < nombre >java-primeros-pasos</ nombre >
+
+  < propiedades >
+    < java.versión >1.8< /java.versión >
+    < proyecto .build.sourceEncoding>UTF-8</ proyecto .build.sourceEncoding>
+    < proyecto .reporting.outputEncoding>UTF-8</ proyecto .reporting.outputEncoding>
+    < webjars-bootstrap.versión >4.1.3< /webjars-bootstrap.versión >
+    < webjars-jquery-ui .versión>1.12.1</ webjars-jquery-ui .versión>
+    < webjars-jquery .versión>3.3.1-1</ webjars-jquery .versión>
+  </ propiedades >
+
+  < dependencias >
+    < dependencia >
+      < groupId >org.springframework.boot</ groupId >
+      < Id de artefacto > accionador de arranque de arranque de resorte</ Id de artefacto >
+    </ dependencia >
+    < dependencia >
+      < groupId >org.springframework.boot</ groupId >
+      < artefactoId >spring-boot-starter-web</ artefactoId >
+    </ dependencia >
+    < dependencia >
+      < groupId >org.springframework.boot</ groupId >
+      < artefactoId >spring-boot-starter-thymeleaf</ artefactoId >
+      < exclusiones >
+      	< exclusión >
+      		< groupId >nz.net.ultraq.thymeleaf</ groupId >
+      		< artefactoId >dialecto-diseño-hojadetomillo</ artefactoId >
+      	</ exclusión >
+      </ exclusiones >
+    </ dependencia >
+    < dependencia >
+      < groupId >org.springframework.boot</ groupId >
+      < artefactoId >prueba de inicio de arranque de primavera</ artefactoId >
+      < ámbito > prueba </ ámbito >
+    </ dependencia >
+    < dependencia >
+      < groupId >org.postgresql</ groupId >
+      < Id de artefacto > postgresql</ Id de artefacto >
+    </ dependencia >
+    < dependencia >
+      < groupId >com.zaxxer</ groupId >
+      < artefactoId >HikariCP</ artefactoId >
+    </ dependencia >
+    < dependencia >
+      < groupId >org.webjars</ groupId >
+      < artefactoId >jquery</ artefactoId >
+      < versión > ${webjars-jquery.version} </ versión >
+    </ dependencia >
+    < dependencia >
+      < groupId >org.webjars</ groupId >
+      < artefactoId >jquery-ui</ artefactoId >
+      < versión > ${webjars-jquery-ui.version} </ versión >
+    </ dependencia >
+    < dependencia >
+      < groupId >org.webjars</ groupId >
+      < Id de artefacto > arranque</ Id de artefacto >
+      < versión > ${webjars-bootstrap.versión} </ versión >
+    </ dependencia >
+    < dependencia >
+    < groupId >org.webjars</ groupId >
+      < artefactoId >ubicador de webjars</ artefactoId >
+      < versión >0.30</ versión >
+    </ dependencia >
+    < dependencia >
+      < groupId >org.springframework.boot</ groupId >
+      < artefactoId >spring-boot-devtools</ artefactoId >
+      < ámbito >tiempo de ejecución</ ámbito >
+    </ dependencia >
+  </ dependencias >
+
+  < construir >
+    < complementos >
+      < complemento >
+        < groupId >org.springframework.boot</ groupId >
+        < artefactoId >primavera-arranque-maven-complemento</ artefactoId >
+        < ejecuciones >
+          < ejecución >
+            < objetivos >
+              < objetivo >información de compilación</ objetivo >
+            </ objetivos >
+            < configuración >
+              < propiedades adicionales >
+                < codificación .fuente> ${proyecto.construir.codificaciónfuente} </ codificación .fuente>
+                < codificación .reporting> ${project.reporting.outputEncoding} </ codificación .reporting>
+                < java .fuente> ${maven.compiler.fuente} </ java .fuente>
+                < java .objetivo> ${maven.compiler.objetivo} </ java .objetivo>
+              </ propiedades adicionales >
+            </ configuración >
+          </ ejecución >
+        </ ejecuciones >
+      </ complemento >
+    </ complementos >
+  </ compilación >
+
+</ proyecto >
