@@ -1,11 +1,13 @@
 package Data;
 
+import java.awt.Window;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
+
 import Entities.Categoria;
 
 public class DataCategoria {
@@ -38,6 +40,7 @@ public class DataCategoria {
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				System.out.println("se ha producido un error");
 			}
 		}
 		
@@ -108,8 +111,9 @@ public class DataCategoria {
 		}
     }
 	
-	public void delete(Categoria cat) {
+	public String delete(Categoria cat) {
 		PreparedStatement stmt=null;
+		String error="";
 		try 
 		{
 			stmt=DbConnector.getInstancia().getConn().prepareStatement("DELETE FROM categoria WHERE idCategoria= ?");
@@ -117,15 +121,19 @@ public class DataCategoria {
 			stmt.executeUpdate();
 		}catch (SQLException e) {
 			e.printStackTrace();
-			
+			error="No es posible eliminar la categoria, ya que se encuentran productos cargados en ella"	;
 		}finally {
 			try {
 				if(stmt!=null)stmt.close();
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				
+
 			}
 		}	
+		return error;
+
 	}
 
 
