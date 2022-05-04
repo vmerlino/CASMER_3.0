@@ -24,9 +24,9 @@ public class LogicCategoria {
 		dc.add(cat);
 	}
 	
-	public void delete(Categoria cat) {
+	public String delete(Categoria cat) {
 		dc=new DataCategoria();
-		dc.delete(cat);
+		return dc.delete(cat);
 	}
 
 	public void edit(Categoria cat) {
