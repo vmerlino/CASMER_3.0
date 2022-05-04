@@ -24,6 +24,13 @@ Usuario usu = (Usuario)request.getSession().getAttribute("usuario");
 LinkedList<Categoria> lc = (LinkedList<Categoria>) request.getAttribute("listaCategorias");
 if( (String)request.getAttribute("buscarcat") == null){request.setAttribute("buscarcat", "");}
 String buscar = (String)request.getAttribute("buscarcat");
+
+Boolean error ;
+String errorSQL;
+if(request.getAttribute("errorSQL") != null){
+	error=true;
+	errorSQL=(String) request.getAttribute("errorSQL");
+}else{error= false;errorSQL="";}
 %>
 </head>
 <body>
@@ -132,7 +139,15 @@ String buscar = (String)request.getAttribute("buscarcat");
 	
 	<br>
 	<div class=" card" style="margin-left:-20mm; width: 95%">
+	<%if(error){ %>	
+   <div class="alert alert-danger d-flex align-items-center" role="alert">
+    <div>
+      <%=errorSQL %>
+    </div>
+  </div>
+							<%} %>
 	<div class="card-content">
+
 	<table class="table">
 		  <thead class="table-dark">
 
