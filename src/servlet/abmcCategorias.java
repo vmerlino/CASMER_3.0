@@ -58,7 +58,10 @@ public class abmcCategorias extends HttpServlet {
 		 case "borrar":{
 						String id = request.getParameter("idCategoria");
 						cat.setIdCategoria(Integer.parseInt(id));
-						ctrl.delete(cat);
+						String error = ctrl.delete(cat);
+						if(!error.equals("")) {
+							request.setAttribute("errorSQL", error);
+						}
 						LinkedList<Categoria> categorias = ctrl.getAll();
 						request.setAttribute("listaCategorias", categorias);
 						request.getRequestDispatcher("WEB-INF/listarCategorias.jsp").forward(request, response);
